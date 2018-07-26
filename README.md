@@ -1,1 +1,1 @@
-# leagueoflegends
+# 使用Springboot，数据持久层基于JPA的实现数据库增删改查。

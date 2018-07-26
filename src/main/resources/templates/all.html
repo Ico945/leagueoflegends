@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>英雄管理系统</title>
+</head>
+<body>
+    <h3 align="center">英雄管理系统</h3>
+    <p style="text-align: center"> <a th:href="@{'/add_page'}">添加</a> </p>
+    <table border="1" width="70%" align="center">
+        <tr>
+            <th>英雄外号</th>
+            <th>名字</th>
+            <th>性别</th>
+            <th>台词</th>
+            <th>类型</th>
+            <th>擅长位置</th>
+            <th>操作</th>
+        </tr>
+        <tr th:each="hero:${heroes}" align="center">
+            <td th:text="${hero.getNickname()}"></td>
+            <td th:text="${hero.getName()}"></td>
+            <td th:text="${hero.getGender()}"></td>
+            <td th:text="${hero.getSlogan()}"></td>
+            <td th:text="${hero.getClassification()}"></td>
+            <td th:text="${hero.getLocation()}"></td>
+            <td>
+                <a th:href="@{'/delete/' + ${hero.getId()}}">删除</a>
+                <a th:href="@{'/edit/' + ${hero.getId()}}">编辑</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

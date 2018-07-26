@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加信息</title>
+</head>
+<body>
+<h3 align="center">添加信息</h3>
+<form action="/add" method="post" th:object="${hero}">
+    <input type="hidden" name="id" th:text="${hero.getId()}"/>
+    <table border="0" align="center" width="40%" style="margin-left: 100px">
+        <tr>
+            <td width="100px">外号</td>
+            <td width="40%">
+                <input type="text" name="nickname" th:value="${hero.nickname}"/>
+            </td>
+            <td align="left">
+                <label id="nicknameError" class="error">&nbsp;</label>
+            </td>
+        </tr>
+        <tr>
+            <td width="100px">姓名</td>
+            <td width="40%">
+                <input type="text" name="name"/>
+            </td>
+            <td align="left">
+                <label id="nameError" class="error">&nbsp;</label>
+            </td>
+        </tr>
+        <tr>
+            <td>客户性别</td>
+            <td>
+                <input type="radio" name="gender" value="男" th:filed="${hero.gender}"/>
+                <label>男</label>
+                <input type="radio" name="gender" value="女" th:filed="${hero.gender}"/>
+                <label>女</label>
+            </td>
+            <td>
+                <label id="genderError"class="error">&nbsp;</label>
+            </td>
+        </tr>
+        <tr>
+            <td>英雄类型</td>
+            <td>
+                <input type="text" name="classification"/>
+            </td>
+            <td>
+                <label id="classificationError"class="error">&nbsp;</label>
+            </td>
+        </tr>
+        <tr>
+            <td>位置</td>
+            <td>
+                <input type="text" name="location"/>
+            </td>
+            <td>
+                <label id="locationError"class="error">&nbsp;</label>
+            </td>
+        </tr>
+        <tr>
+            <td>口头禅</td>
+            <td>
+                <textarea rows="5" cols="30" name="slogan"></textarea>
+            </td>
+            <td>
+                <label id="sloganError"class="error">&nbsp;</label>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="submit" value="确定"/>
+                <input type="reset" name="reset"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
